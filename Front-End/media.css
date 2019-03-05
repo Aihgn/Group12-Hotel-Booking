@@ -1,0 +1,39 @@
+@media (min-width: 992px){
+	.container {
+	    max-width: 960px;
+	}
+}
+
+@media (min-width: 768px){
+	.container {
+	    max-width: 720px;
+	}
+	.pl-md-3, .px-md-3 {
+	    padding-left: 1rem!important;
+	}
+}
+
+@media (min-width: 576px){
+	.container {
+	    max-width: 540px;
+	}
+}
+
+@media (max-width: 767px){
+	.hero-text {
+	    font-size: 24px;
+	    line-height: 1.4;
+	}
+}
+
+@media (max-width: 991px){
+	.hero-text {
+	    font-size: 30px;
+	}
+}
+
+@media (max-width: 1199px){
+	.hero-text {
+	    font-size: 40px;
+	}
+}

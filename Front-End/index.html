@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <title> X - Hotel Booking</title>   
+    <meta charset="utf-8">  
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./menu-wrap.css">
+    <link rel="stylesheet" type="text/css" href="./media.css">
+
+    <!-- boostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    
+
+
+</head>
+<body>
+
+    <nav id = "menu-wrap" class="menu-back cbp-af-header">
+        <div class="menu-top background-black" id="menu-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col- px-0 px-md-3 pl-1 py-3">
+                        <span class="call-top">Call us:</span>
+                        <a href="#" class='call-top'>(+84) 888 888 8888</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <a href="index.html">
+                <div class="logo"></div>
+            </a>
+            <a href="#" class="menu-mobile"></a>
+            <ul >
+                    <li><a href="">Home</a></li>
+                    <li><a href="#">Rooms</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><button class="btn"><a href="">Book Now</a></button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="section background-dark over-hide">
+        <div class="hero-center-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-8">
+                        <div class="hero-text">Discover your paradise</div>
+                    </div>
+                    <div class="col-12 mt-3 mb-5">
+                        <div class="hero-stars">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="booking-hero-wrap">
+                            <div class="row justify-content-center">
+                                <div class="col-5 no-mob">
+                                    <div class="input-daterange input-group" id="flight-datepicker">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-item">
+                                                    <span class="fontawesome-calendar">
+                                                        <input class="input-sm" type="text" autocomplete="off" id="start-date-1" name="start" placeholder="chech-in date" data-date-format="DD, MM d">
+                                                        <span class="date-text date-depart"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-item">
+                                                    <span class="fontawesome-calendar">
+                                                        <input class="input-sm" type="text" autocomplete="off" id="end-date-1" name="end" placeholder="check-out date" data-date-format="DD, MM d">
+                                                        <span class="date-text date-depart"></span>
+                                                    </span>
+                                                </div>
+                                            </div>          
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 no-mob">
+                                    <div class="row">
+                                            <div class="col-6">
+                                                <select name="adults" class="wide" style="display: none;">
+                                                    <option data-display="adults">adults</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                                <div class="nice-select wide" tabindex="0">
+                                                    <span class="current">adults</span>
+                                                    <ul class="list">
+                                                        <li data-value="adults" data-display="adults" class="option selected">adults</li><li data-value="1" class="option">1</li><li data-value="2" class="option">2</li><li data-value="3" class="option">3</li><li data-value="4" class="option">4</li><li data-value="5" class="option">5</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <select name="children" class="wide" style="display: none;">
+                                                    <option data-display="children">children</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                                <div class="nice-select wide" tabindex="0">
+                                                    <span class="current">children</span>
+                                                    <ul class="list">
+                                                        <li data-value="children" data-display="children" class="option selected">children</li><li data-value="1" class="option">1</li><li data-value="2" class="option">2</li><li data-value="3" class="option">3</li><li data-value="4" class="option">4</li><li data-value="5" class="option">5</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-6  col-sm-4 col-lg-2">
+                                    <a class="booking-button href="">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slideshow">
+            <div class="slide slide--current parallax-top">
+                <figure class="slide__figure">
+                    <div class="slide__figure-inner">
+                        <div class="slide__figure-img" style="background-image: url(./1.jpg)"></div>
+                        <div class="slidefigure-reveal"></div>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </div>
+    
+        
+
+    <div class="test">
+        <ul>
+        <li>iii</li>
+        <li>iii</li>
+        <li>iii</li>
+        <li>iii</li>
+        <li>iii</li>
+        <li>iii</li>
+        <li>iii</li>
+        </ul>
+    </div>  
+
+
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(window).on('scroll', function(){
+            if($(document).scrollTop() > 10){
+                $('.menu').addClass('change');
+            }else{
+                $('.menu').removeClass('change');       
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(window).on('scroll', function(){
+            if($(document).scrollTop() > 10){
+                $('.menu-top').addClass('change');
+            }else{
+                $('.menu-top').removeClass('change');       
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(window).scroll(function(){
+            $(".hero-center-section").css("opacity", 1 - $(window).scrollTop() / 350);
+          });
+    </script>
+    
+</body>
+</html>

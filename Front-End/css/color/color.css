@@ -10,6 +10,8 @@
 .menu > ul > li > ul > li a:hover,
 .room-icons a:hover,
 a.call-top:hover,
+a.account-help,
+.login input:focus + label,.login  input:valid + label,
 .footer-bottom .fa:hover,
 .account-top:hover,
 .social-footer-bottom:hover,
@@ -50,6 +52,7 @@ a.call-top:hover,
 .datepicker.dropdown-menu table tr th.active:hover, 
 .datepicker.dropdown-menu table tr th:active:hover,
 .booking-button,
+.login-button,
 .menu > ul > li a span,
 .btn.btn-primary:hover,
 .room-box-in a:hover,
@@ -114,14 +117,17 @@ figure.vimeo a:before, figure.youtube a:before {
 	border-color: #ed254e;
 } 
 
+.login-input input{
+	border-bottom: 1px solid #ed254e;
+}
+
+
 ::selection {
 	background-color: #ed254e;
 }
 ::-moz-selection {
 	background-color: #ed254e;
 }
-
-
 
 
 

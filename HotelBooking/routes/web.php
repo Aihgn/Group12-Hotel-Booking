@@ -11,6 +11,44 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+	'as'=>'home',
+	'uses'=>'PageController@getIndex'
+]);
+
+Route::get('home', [
+	'as'=>'home',
+	'uses'=>'PageController@getIndex'
+]);
+
+Route::get('rooms', [
+	'as'=>'rooms',
+	'uses'=>'PageController@getRooms'
+]);
+
+Route::get('about', [
+	'as'=>'about',
+	'uses'=>'PageController@getAbout'
+]);
+
+
+Route::get('myaccount',[
+	'as'=>'myaccount',
+	'uses'=>'PageController@getMyAccount'
+]);
+
+route::get('guestbooking', [
+	'as'=>'guestbooking',
+	'uses'=>'PageController@getGuestBooking'
+]);
+
+Auth::routes();
+
+route::get('booking',[
+	'as'=>'booking',
+	'uses'=>'PageController@getBooking'
+]);
+ route::post('booking', [
+ 	'as'=>'booking',
+ 	'uses'=>'PageController@postBooking'
+ ]);

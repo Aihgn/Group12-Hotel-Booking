@@ -52,3 +52,8 @@ route::get('booking',[
  	'as'=>'booking',
  	'uses'=>'PageController@postBooking'
  ]);
+
+ Route::get('/booking/add_room',[
+ 	'as'=>'add_room.action',
+ 	'uses'=>'PageController@addRoom'
+ ]);

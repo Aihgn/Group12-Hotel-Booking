@@ -61,5 +61,6 @@
             </div>
         </div>
     </div>
+    @include('layouts.background');
 </div>
 @endsection

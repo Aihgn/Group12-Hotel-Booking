@@ -52,3 +52,12 @@ route::get('booking',[
  	'as'=>'booking',
  	'uses'=>'PageController@postBooking'
  ]);
+
+ /**route::get('register',[
+	'as'=>'register',
+	'uses'=>'RegisterController@getRegister'
+]);
+ route::post('register',[
+	'as'=>'register',
+	'uses'=>'RegisterController@postRegister'
+]);

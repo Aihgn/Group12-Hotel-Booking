@@ -57,3 +57,13 @@ route::get('booking',[
  	'as'=>'add_room.action',
  	'uses'=>'PageController@addRoom'
  ]);
+
+  Route::get('/booking/remove_room',[
+ 	'as'=>'remove_room.action',
+ 	'uses'=>'PageController@removeRoom'
+ ]);
+
+ Route::get('admin',[
+ 	'as'=>'admin',
+ 	'uses'=>'PageController@getAdmin'
+ ]);

@@ -13,7 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/plugins.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script><!--Jquery-->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!--Jquery-->   
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     
@@ -136,6 +136,7 @@
 		}
 
 		/*Total*/
+
 		.payment{
 			display: flex;
 			color:#fff;
@@ -148,22 +149,10 @@
 			border-top:1px dotted #ed254e;
 
 		}
-		.total-amount table{
+		.total-amount table, .detail table{
 			width: 100%;
 		}
 
-		.collapse-header{
-			color: #ed254e;
-		}
-
-		.collapse-header:hover{
-			color: #c22747;;
-			text-decoration: none;
-		}
-
-		.collapse-content{
-			display: none;
-		}
 		.form-check:checked{
 			background-color: red;
 		}
@@ -241,7 +230,7 @@
 					<h1 class="text-center mb-4 mt-4 color-white">Guest & room</h1>
 					<div  id="container-add-room" >
 						<div class="guest-room row justify-content-center">
-							<div class="row col-6 mt-5 justify-content-center">
+							<div class="row col-12 col-lg-6 col-md-8 col-sm-10 mt-5 justify-content-center">
 								<a href="#" class="sub-room" id="sub-room" style="visibility: hidden;"><ion-icon name="close" style="font-size: 40px; color:#fff;"></ion-icon></a>
 								<div class="col-5">
 									<select name="adults" class="wide">
@@ -265,8 +254,8 @@
 						<a href="#" id="add-room">Add a room</a>
 					</div>		
 					<div class="row justify-content-center">
-						<div class="row  text-center  ">
-							<button class="update-btn input-button col-6  col-sm-4 col-lg-12 pl-5 pr-5" data-toggle="tab" href="#date-pick">{{ __('Update room & guest') }}</button>
+						<div class="row text-center  ">
+							<button class="update-btn input-button col-12 p-4" data-toggle="tab" href="#date-pick">{{ __('Update room & guest') }}</button>
 						</div>						
 					</div>
 				</div>
@@ -279,14 +268,14 @@
 							<div class="row mb-4">
 								<div class="input-daterange input-group" id="flight-datepicker">
 									<div class="row">	
-										<div class="col-6">
+										<div class="col-12 col-md-6 mb-4">
 											<div class="form-item">
 												<span class="fontawesome-calendar"></span>
 												<input class="input-sm" type="text" autocomplete="off" id="start-date" name="start" placeholder="chech-in date" data-date-format="dd/mm/yyyy"/>
 												<span class="date-text date-depart"></span>
 											</div>
 										</div>
-										<div class="col-6">
+										<div class="col-12 col-md-6">
 											<div class="form-item">
 												<span class="fontawesome-calendar"></span>
 												<input class="input-sm" type="text" autocomplete="off" id="end-date" name="end" placeholder="check-out date" data-date-format="dd/mm/yyyy"/>
@@ -299,8 +288,8 @@
 						</div>
 					</div>
 					<div class="row justify-content-center">
-						<div class="row col-3 mt-4">						
-							<button class="update-btn input-button" data-toggle="tab" id="update-date" href="#room-pick">{{ __('Update date of stay') }}</button>
+						<div class="row mt-4">						
+							<button class="update-btn input-button col-12 p-4" data-toggle="tab" id="update-date" href="#room-pick">{{ __('Update date of stay') }}</button>
 						</div>
 					</div>
 				</div>
@@ -310,35 +299,35 @@
 					<h1 class="text-center mb-4 mt-4 color-white">Rooms</h1>
 					<div class="row flex-row flex-nowrap justify-content-center">
 				        <div class="col-10">	
-				        @foreach($room as $r)		
+				        @foreach($room as $r)	
+				        	<div class="card mb-4">
+								<div class="row no-gutters">
+									<div class="col-md-5 room-img">
+										<img src="img/{{$r->image}}" class="card-img" alt="{{$r->name}}">
+									</div>
+									<div class="col-md-7">
+										<div class="card-body">
+											<div class="col-6">
+												<h4 class="card-title">{{$r->name}}</h4>
+												<p class="mt-3">{{$r->description}}</p>
+											</div>
+											<div class="col-6 text-md-left">
+												<ul class="text-md-left">
+													<li>Max: 4 Person(s)</li>
+													<li>View: City</li>
+													<li>Size: 35m2/ 376ft2</li>		
+												</ul>             
 
-			            	<div class="card mb-4">			            		
-				                <div class="card-horizontal">
-				                    <div class="img-square-wrapper">
-				                        <img class="room-img" src="img/{{$r->image}}" alt="Card image cap">
-				                    </div>
-				                    <div class="card-body">
-				                    	<div class="col-6">
-				                    		<h4 class="card-title">{{$r->name}}</h4>
-					                        <p class="mt-3">{{$r->description}}</p>
-																		
-				                    	</div>
-				                        <div class="col-6 text-md-left">
-				                        	<ul class="text-md-left">
-												<li>Max: 4 Person(s)</li>
-												<li>View: City</li>
-												<li>Size: 35m2/ 376ft2</li>		
-											</ul>             
-				                        	
-				                        	<div class="price-sel">		
-		                        				<input type="text" value="${{$r->price}}" />
-		                        				<button class="reserve-room input-button" id="{{$r->id}}" type="button">book</button>
-				                        	</div>
-				                        </div>
-				                    </div>
-				                </div>		
-				            </div>	
-				            @endforeach				           
+												<div class="price-sel">		
+													<input type="text" value="${{$r->price}}" />
+													<button class="reserve-room input-button" id="{{$r->id}}" type="button">book</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>			            	
+			            @endforeach				           
 				        </div>
 					</div>
 				</div>
@@ -346,36 +335,28 @@
 					======================================= --}}
 				<div id="total" class="tab-pane">
 					<h1 class="text-center mb-4 mt-4 color-white">Total</h1>
-					<div class="payment">
-						<div class="col-xs-12 col-4  pl-5 pr-5">
+					<div class="payment row">
+						<div class="col-12 col-lg-4 pl-5 pr-5 mb-5 mt-5">
 							<h5 class="text-center color-white">Your reservation</h5>
 							<div class="detail mt-2 mb-3">
-								
-								
 							</div>
 							<div class="total-amount" >
 								<table >
-									<td>
+									<td class="text-left">
 										<span>Total reservation amount</span>
-										
 									</td>
 									<td class="text-right">
-										<span>$11111</span>
+										<span id="total_amount"></span>
 									</td>
 								</table>
 							</div>
 						</div>
-						<div class="customer_info col-xs-12 col-4 pl-5 pr-5">
+						<div class="customer_info col-12 col-lg-4 pl-5 pr-5 mb-5 mt-5">
 							<h5 class="text-center color-white">Your infomation</h5>
 							@guest
 								<div class="input-field"> 
 	                                <label for="name">{{ __('Full name:')}}</label>
-	                                <input id="name" type="text" class="{{ $errors->has('name') ? ' is-invalid' : '' }} color-white" value="" required>
-	                                @if ($errors->has('name'))
-	                                    <div class="alert-error text-center mt-4">
-	                                        <strong>*{{ $errors->first('name') }}</strong>
-	                                    </div>
-                               		 @endif 
+	                                <input id="name" name="name" type="text" class="{{ $errors->has('name') ? ' is-invalid' : '' }} color-white" value="" required>	                
 	                            </div>
 	                            <div class="input-field">
 	                                <label for="email">{{__('Email:')}}</label>
@@ -389,7 +370,7 @@
 	                            </div>
 	                            <div class="input-field">
                             	<label for="phone_number">{{ __('Phone number:')}}</label>
-                                <input id="phone_number" type="text" class="color-white" value="" required>   
+                                <input id="phone_number" type="text" class="color-white" name="phone_number" value="" required>   
                             </div>
                             @else
 	                            <div class="input-field"> 
@@ -418,7 +399,7 @@
                             @endguest
                             	
 						</div>
-						<div class="col-xs-12 col-4 pl-5 pr-5">
+						<div class="col-12 col-lg-4 pl-5 pr-5 mt-5">
 							<h5 class="text-center color-white">Payment Method</h5>
 							<div class="input-field">
                             	<label for="name-on-card">{{ __('Name on Card:')}}</label>
@@ -432,11 +413,11 @@
                             	<label for="expiration-date">{{ __('Expiration date:')}}</label>
                                 <input id="expiration-date" type="text" class="color-white" placeholder="MM/YY" required>   
                             </div>	
-							<div class="button-div text-center col-6  col-sm-4 col-lg-12">                                
-                            <button type="submit" class="input-button pr-3 pl-3">
-                                {{ __('Book now') }}
-                            </button>                                
-                        </div>
+							<div class="button-div text-center col-12">                                
+	                            <button type="submit" class="input-button p-3">
+	                                {{ __('Book now') }}
+	                            </button>                                
+	                        </div>
 						</div>
 					</div>
 				</div>
@@ -549,13 +530,16 @@
 				document.getElementById("room-pick-header").classList.add("disabled-btn");
 				document.getElementById("total-header").classList.add("disabled-btn");
 			}else{
-				
 				$("#update-date").prop('disabled', false);
 				$("#room-pick-header").prop('disabled', false);	
 				$("#total-header").prop('disabled', false);
 				document.getElementById("update-date").classList.remove("disabled-btn");
 				document.getElementById("room-pick-header").classList.remove("disabled-btn");
 				document.getElementById("total-header").classList.remove("disabled-btn");
+				$('.room-cart').html('');
+				$('.detail').html('');
+				j=0;
+				$("#room-pick-header").html("Accomodations");	
 			}
 			
 		});
@@ -569,6 +553,7 @@
 			var start=toDate($('#start-date').val());
 			var end=toDate($('#end-date').val());
 			var day = (end-start)/1000/60/60/24;
+			if(day==0) day=1;
 			return day;
 		}
 
@@ -579,8 +564,10 @@
 
 		//add room
 		var j=0;
+		var total_amount=0;
 		$('.reserve-room').click(function()
 		{	
+
 			document.getElementById('lds-ring').style.display="block";
 			setTimeout(function unwait() 
 			{
@@ -589,17 +576,22 @@
 			if(j<i+1)
 			{
 				var id =this.id;
+				var rid = j+1;
 				$.ajax({
 					url:"{{route('add_room.action')}}",
 					method:'GET',
-					data:{id:id},
+					data:{id:id, 
+						roomIDp:rid,
+						calDate:calDate()},
 					dataType: 'json',
 					success:function(data)
 					{
 						$('.room-cart').append(data.room);
 						$('.detail').append(data.detail);
+						total_amount+=data.room_price;
+						$('#total_amount').html('$'+total_amount);
 					}
-				});	
+				});		
 				if(i==j){
 					$('.nav-tabs a[href="#total"]').tab('show');
 				}
@@ -614,32 +606,26 @@
 		$(document).on("click",".remove-room",function() 
 		{	
 			var id_room=this.id;
-			$(this).closest(".card").remove();
-			document.getElementById(id_room).remove();
+			$(this).closest(".card").remove();			
 			j--;
+			document.getElementById(id_room).remove();
 			$('.nav-tabs a[href="#room-pick"]').tab('show');
 			$("#room-pick-header").html("Accomodations <br>"+(j)+" rooms");
+			var idr=this.id.substring(this.id.length - 1, this.id.length);
+			$.ajax({
+				url:"{{route('remove_room.action')}}",
+				method:'GET',
+				data:{id:idr,
+					calDate:calDate()},
+				dataType: 'json',
+				success:function(data)
+				{						
+					total_amount-=data.room_price;
+					$('#total_amount').html('$'+total_amount);
+				}
+			});
 		});
-
-
 	});
-
-	//collapse
-		$(".collapse-header").click(function () 
-		{
-		    $header = $(this);		    
-		    $content = $header.next();		   
-		    $content.slideToggle(500, function () 
-		    {
-		        $header.text(function () 
-		        {		         
-		            $content.is(":visible");
-		        });
-		    });
-		});
-
 </script>
-
-
 </body>
 </html>

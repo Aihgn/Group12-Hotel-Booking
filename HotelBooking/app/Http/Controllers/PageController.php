@@ -145,7 +145,7 @@ class PageController extends Controller
 
     public function getAdmin(){
         return view('page.index-admin');
-
+    }
     public function postMyAccount(Request $req){
         $id_user = Auth::id();
         $user=User::findOrFail($id_user);

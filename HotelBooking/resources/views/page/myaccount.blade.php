@@ -13,45 +13,49 @@
 	                
 	                <div class="tab-content">
 	                        <div class="tab-pane active" id="profile">
-	                            <form method="POST" action="{{ route('myaccount') }}">
-	                            	@csrf
-		                            <div class="input-field"> 
-		                                <label for="name">{{ __('Full name:')}}</label>
-		                                <input id="name" type="text" class="{{ $errors->has('name') ? ' is-invalid' : '' }} color-black" value="{{ Auth::user()->name }}" name="name"required>
-		                                @if ($errors->has('name'))
-	                                    <div class="alert-error text-center mt-4">
-	                                        <strong>*{{ $errors->first('name') }}</strong>
-	                                    </div>
-	                                @endif 
-		                            </div>
-		                            <div class="input-field">
-		                                <label for="email">{{__('Email:')}}</label>
-		                                <input id="email" type="email" class="{{ $errors->has('email') ? ' is-invalid' : '' }} color-black" name="email" value="{{ Auth::user()->email }}" required>
-		                            </div>
-		                            <div class="input-field">
-		                            	<label for="phone_number">{{ __('Phone number:')}}</label>
-		                                <input id="phone_number" type="text" class="color-black" value="{{$acc_info[0]->phone_number}}" name="phone_number"required>   
-		                            </div>	                            
-		                            <div class="input-field">
-		                                <label for="address1">Address:</label>
-		                                <input id="address1" type="text" class="color-black" value="{{$acc_info[0]->address}}" name="address1" required>
-		                            </div>	                            
-		                            <div class="input-field">
-		                                <label for="password" >{{ __('Current password:') }}</label>
-		                                <input id="password" type="password" class="color-black" name="password" required>
+	                            
+	                            <div class="input-field"> 
+	                                <label for="name">{{ __('Full name:')}}</label>
+	                                <input id="name" type="text" class="{{ $errors->has('name') ? ' is-invalid' : '' }} color-black" value="{{ Auth::user()->name }}" required autofocus>
+	                                @if ($errors->has('name'))
+                                    <div class="alert-error text-center mt-4">
+                                        <strong>*{{ $errors->first('name') }}</strong>
+                                    </div>
+                                @endif 
+	                            </div>
+	                            <div class="input-field">
+	                                <label for="email">{{__('Email:')}}</label>
+	                                <input id="email" type="email" class="{{ $errors->has('email') ? ' is-invalid' : '' }} color-black" name="email" value="{{ Auth::user()->email }}" required>
 
-		                                @if (Session::has('flag'))
-		                                    <div class="alert-error text-center mt-4 color-black">
-		                                        <strong>*{{Session::get('message')}}</strong>
-		                                    </div>
-		                                @endif                              
-		                            </div>
-		                            <div class="button-div text-center col-6  col-sm-4 col-lg-12">    
-		                                <button type="submit" class="input-button mb-5">
-		                                    {{ __('Submit') }}
-		                                </button>                                
-		                            </div>
-	                        	</form>
+                                @if ($errors->has('email'))
+                                    <div class="alert-error text-center mt-4">
+                                        <strong>*{{ $errors->first('email') }}</strong>
+                                    </div>
+                                @endif
+	                            </div>
+	                            <div class="input-field">
+	                            	<label for="phone_number">{{ __('Phone number:')}}</label>
+	                                <input id="phone_number" type="text" class="color-black" value="{{$acc_info[0]->phone_number}}" required autofocus>   
+	                            </div>	                            
+	                            <div class="input-field">
+	                                <label for="address1">Address:</label>
+	                                <input id="address1" type="text" class="color-black" value="{{$acc_info[0]->address}}" required autofocus>
+	                            </div>	                            
+	                            <div class="input-field">
+	                                <label for="password" >{{ __('Current password:') }}</label>
+	                                <input id="password" type="password" class="color-black" name="password" required>
+
+	                                @if ($errors->has('password'))
+	                                    <div class="alert-error text-center mt-4">
+	                                        <strong>*{{ $errors->first('password') }}</strong>
+	                                    </div>
+	                                @endif                              
+	                            </div>
+	                            <div class="button-div text-center col-6  col-sm-4 col-lg-12">    
+	                                <button type="submit" class="input-button mb-5">
+	                                    {{ __('Submit') }}
+	                                </button>                                
+	                            </div>
 	                        </div>
 	                        <div class="tab-pane" id="change_password">
 	                             <div class="input-field">

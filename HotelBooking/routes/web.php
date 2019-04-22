@@ -66,4 +66,5 @@ route::get('booking',[
  Route::get('admin',[
  	'as'=>'admin',
  	'uses'=>'PageController@getAdmin'
+
  ]);

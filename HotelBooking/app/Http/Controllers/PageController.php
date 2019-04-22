@@ -8,7 +8,10 @@ use Auth;
 use App\RoomType;
 use App\Reservation;
 use Session;
-use App\Cart;
+use App\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+
 
 class PageController extends Controller
 {
@@ -142,5 +145,28 @@ class PageController extends Controller
 
     public function getAdmin(){
         return view('page.index-admin');
+
+    public function postMyAccount(Request $req){
+        $id_user = Auth::id();
+        $user=User::findOrFail($id_user);
+            if(Hash::check($req->password, $user->password)){
+
+                User::where('id',$id_user)->update(array(
+                             'name'=>$req->name,
+
+
+                ));
+                Customer::where('id_user',$id_user)->update(array(
+                            'name'=>$req->name,
+                             'phone_number'=>$req->phone_number,
+                             'address'=>$req->address1,
+
+                ));
+                return redirect()->back();
+            }
+            else{
+                //
+                return redirect()->back()->with(['flag'=>'failed','message'=>'Wrong password']);
+            }    
     }
 }

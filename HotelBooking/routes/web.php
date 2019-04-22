@@ -52,7 +52,19 @@ route::get('booking',[
  	'as'=>'booking',
  	'uses'=>'PageController@postBooking'
  ]);
- route::post('myaccount',[
- 	'as'=>'myaccount',
- 	'uses'=>'PageController@postMyAccount'
+
+ Route::get('/booking/add_room',[
+ 	'as'=>'add_room.action',
+ 	'uses'=>'PageController@addRoom'
+ ]);
+
+  Route::get('/booking/remove_room',[
+ 	'as'=>'remove_room.action',
+ 	'uses'=>'PageController@removeRoom'
+ ]);
+
+ Route::get('admin',[
+ 	'as'=>'admin',
+ 	'uses'=>'PageController@getAdmin'
+
  ]);

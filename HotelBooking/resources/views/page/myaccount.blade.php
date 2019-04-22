@@ -11,13 +11,12 @@
                 </ul>           
 	            <div class="col-7 mt-5 background-white">
 	                
-	                <div class="tab-content">
+	                <div class="tab-content pr-5">
 	                        <div class="tab-pane active" id="profile">
-	                            
 	                            <div class="input-field"> 
 	                                <label for="name">{{ __('Full name:')}}</label>
-	                                <input id="name" type="text" class="{{ $errors->has('name') ? ' is-invalid' : '' }} color-black" value="{{ Auth::user()->name }}" required autofocus>
-	                                @if ($errors->has('name'))
+	                                <input id="name" type="text" class="{{ $errors->has('name') ? ' is-invalid' : '' }} color-black" if() value="{{ Auth::user()->name }}" required>
+                                @if ($errors->has('name'))
                                     <div class="alert-error text-center mt-4">
                                         <strong>*{{ $errors->first('name') }}</strong>
                                     </div>
@@ -35,11 +34,11 @@
 	                            </div>
 	                            <div class="input-field">
 	                            	<label for="phone_number">{{ __('Phone number:')}}</label>
-	                                <input id="phone_number" type="text" class="color-black" value="{{$acc_info[0]->phone_number}}" required autofocus>   
+	                                <input id="phone_number" type="text" class="color-black" value="{{$acc_info[0]->phone_number}}" required>   
 	                            </div>	                            
 	                            <div class="input-field">
 	                                <label for="address1">Address:</label>
-	                                <input id="address1" type="text" class="color-black" value="{{$acc_info[0]->address}}" required autofocus>
+	                                <input id="address1" type="text" class="color-black" value="{{$acc_info[0]->address}}" required>
 	                            </div>	                            
 	                            <div class="input-field">
 	                                <label for="password" >{{ __('Current password:') }}</label>

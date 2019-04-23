@@ -21,7 +21,8 @@
 .list-style.circle li:before,
 .list-style.circle-o li:before,
 .list-style li i,
-.list-style a.btn-link:hover{
+.list-style a.btn-link:hover,
+.flag_failed{
 	color: #ed254e;
 }
 .js .loading::after,

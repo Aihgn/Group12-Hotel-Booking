@@ -37,6 +37,16 @@ Route::get('myaccount',[
 	'uses'=>'PageController@getMyAccount'
 ]);
 
+Route::post('myaccount',[
+	'as'=>'myaccount',
+	'uses'=>'PageController@postMyAccount'
+]);
+
+Route::post('myaccount/change-password',[
+	'as'=>'change-password',
+	'uses'=>'PageController@changePassword'
+]);
+
 route::get('guestbooking', [
 	'as'=>'guestbooking',
 	'uses'=>'PageController@getGuestBooking'

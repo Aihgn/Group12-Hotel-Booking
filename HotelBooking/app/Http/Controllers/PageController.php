@@ -11,26 +11,27 @@ use Session;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\MessageBag;
 
 
 class PageController extends Controller
 {
     public function getIndex(){
         $room = RoomType::all();
-    	return view('page.index', compact('room'));
+        return view('page.index', compact('room'));
     }
 
     public function getRooms(){
         $room = RoomType::all();
-    	return view('page.rooms', compact('room'));
+        return view('page.rooms', compact('room'));
     }
 
     public function getAbout(){
-    	return view('page.about');
+        return view('page.about');
     }
 
     public function getGuestBooking(){
-    	return view('page.guestbooking');
+        return view('page.guestbooking');
     }
 
     public function getMyAccount(){
@@ -42,13 +43,82 @@ class PageController extends Controller
         } 
     }
 
+    public function postMyAccount(Request $req)
+    {  
+        
+        $id_user = Auth::id();
+        $user=User::findOrFail($id_user);
+        if(Hash::check($req->password, $user->password)){
+            User::where('id',$id_user)->update(array(
+                        'name'=>$req->name,
+            ));
+            Customer::where('id_user',$id_user)->update(array(
+                        'name'=>$req->name,
+                        'phone_number'=>$req->phone_number,
+                        'address'=>$req->address,
+
+            ));
+            return response()->json([
+                'status' => 'success',
+                'msg' => 'Update successfully',
+            ]);
+        }
+        else{
+            return response()->json([
+                'status' => 'failed',
+                'msg' => 'Wrong password',
+            ]);
+        }
+        
+    }
+
+    public function changePassword(Request $req)
+    {
+        $rules = [
+            'npass' => 'required|min:8',
+            'cnpass' =>'required|same:npass',
+        ];
+        $messages = [    
+            'npass.required' => 'Please enter new password',
+            'npass.min' => 'Password must be at least 8 characters',
+            'cnpass.required' => 'Please enter comfirm password',
+            'cnpass.same' => 'Comfirm password does not match.',
+        ];
+        $validator = Validator::make($req->all(), $rules, $messages);
+        if ($validator->fails()) 
+        {
+            return response()->json([
+                    'error' => true,
+                    'msg' => $validator->errors()
+                ]);
+            
+        } 
+        else {
+            $id_user = Auth::id();
+            $user=User::findOrFail($id_user);
+            if(Hash::check($req->cpass, $user->password)){
+                User::where('id',$id_user)->update(array(
+                             'password'=>Hash::make($req->npass),
+                ));
+
+                return response()->json([
+                    'error' => false,
+                    'msg' => 'Update successfully'
+                ]);    
+            }
+            else{
+                $errors = new MessageBag(['errorlogin' => 'Wrong password']);
+               return response()->json([
+                    'error' => true,
+                    'msg' => $errors,
+                ]);
+            }
+        }
+        
+    }
+
     public function getBooking(){
         $room = RoomType::all();
-        // if(Session::has('cart'))
-        //     {
-        //         $x = Session::get('cart.id');
-        //         dd($x);
-        //     }
         if (Auth::check())
         {
             $id = Auth::user()->id;
@@ -78,7 +148,6 @@ class PageController extends Controller
         $reservation->save();
         return redirect()->back();
     }
-
 
     public function addRoom(Request $req)
     {        
@@ -145,28 +214,5 @@ class PageController extends Controller
 
     public function getAdmin(){
         return view('page.index-admin');
-    }
-    public function postMyAccount(Request $req){
-        $id_user = Auth::id();
-        $user=User::findOrFail($id_user);
-            if(Hash::check($req->password, $user->password)){
-
-                User::where('id',$id_user)->update(array(
-                             'name'=>$req->name,
-
-
-                ));
-                Customer::where('id_user',$id_user)->update(array(
-                            'name'=>$req->name,
-                             'phone_number'=>$req->phone_number,
-                             'address'=>$req->address1,
-
-                ));
-                return redirect()->back();
-            }
-            else{
-                //
-                return redirect()->back()->with(['flag'=>'failed','message'=>'Wrong password']);
-            }    
     }
 }

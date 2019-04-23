@@ -1914,6 +1914,13 @@ a.account-help:hover{
     color:#fff;
     font-size: .9rem;
 }
+.flag_failed{
+    background-color: #ed254e40;
+}
+.flag_success{
+    color: #189217;
+    background-color: #44ed2538;
+}
 #login_failed{
     border: 2px solid #ea1313;
     background-color: #be47478a;

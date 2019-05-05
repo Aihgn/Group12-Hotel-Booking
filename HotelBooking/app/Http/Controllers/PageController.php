@@ -38,8 +38,9 @@ class PageController extends Controller
         if (Auth::check())
         {
             $id = Auth::user()->id;
-            $acc_info = Customer::where('id_user',$id)->get();            
-            return view('page.myaccount', compact('acc_info'));
+            $acc_info = Customer::where('id_user',$id)->get();   
+            $booking_info = Reservation::where('id_customer',$id)->get();
+            return view('page.myaccount', compact('acc_info','booking_info'));
         } 
     }
 

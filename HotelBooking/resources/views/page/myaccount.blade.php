@@ -83,9 +83,34 @@
 	                            </div>
 	                        </div>
 	                        <div class="tab-pane" id="my_booking">
-	                             <h4>Pane C</h4>
-	                            <p>bi tristique senectus et netus et malesuada fames
-	                                ac turpis egestas.</p>
+		                        <table class="table table-hover tb-mybooking">
+		                        	<thead>
+		                        		<tr>
+		                        			<th>No.</th>	
+		                        			<th>Date in</th>
+		                        			<th>Date out</th>
+		                        			<th>Status</th>
+		                        			<th></th>
+		                        		</tr>
+		                        	</thead>
+		                        	<tbody>
+		                        		@foreach($booking_info as $i=>$b_i)
+		                        		<tr>
+		                        			<td>{{$i+1}}</td>	
+		                        			<td>{{date('d-m-Y', strtotime($b_i->date_in))}}</td>
+		                        			<td>{{date('d-m-Y', strtotime($b_i->date_out))}}</td>
+		                        			
+	                        				@if($b_i->status == 0)
+	                        					<td><span class="stt-p p-2">Pending</span></td>
+	                        					<td class="p-1"><button class="input-button p-1">Cancel</button></td>
+	                        				@else
+	                        					<td><span class="stt-d p-2">Done</span></td>
+	                        					<td></td>
+	                        				@endif
+		                        		</tr>
+		                        		@endforeach
+		                        	</tbody>
+		                        </table>
 	                        </div>		                        
 	                </div>
 	            </div>	            

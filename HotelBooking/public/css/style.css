@@ -1964,3 +1964,11 @@ a.account-help:hover{
     color: white;
     transition: 0.5s;
 }
+/*=================================*/
+.stt-p{
+    background-color: #4b5747c7;
+    color:#fff;
+}
+.stt-d{
+    background-color: #4CAF50;
+    color: #fff;

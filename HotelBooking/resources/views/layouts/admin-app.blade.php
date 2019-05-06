@@ -33,117 +33,121 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style type="text/css">
 
-        #wrapper {
-            position: fixed;
-            left: 0;
-            -webkit-transition: all 0.5s ease;
-            -moz-transition: all 0.5s ease;
-            -o-transition: all 0.5s ease;
-            transition: all 0.5s ease;
-        }
+      #wrapper {
+      position: fixed;
+      left: 0;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+      }
 
-        #wrapper.toggled {
-            left: -30rem;
-        }
+      #wrapper.toggled {
+       left: -32rem;
+      }
 
-        #sidebar-wrapper {
-          z-index: 1000;
-          position: fixed;
-          /*right: 250px;*/
-          width: 0;
-          height: 100%;
-          margin-right: -250px;
-          overflow-y: auto;
-          background: #000;
-          -webkit-transition: all 0.5s ease;
-          -moz-transition: all 0.5s ease;
-          -o-transition: all 0.5s ease;
-          transition: all 0.5s ease;
-        }
+      #sidebar-wrapper {
+       z-index: 1000;
+       position: fixed;
+       /*right: 250px;*/
+       width: 0;
+       height: 100%;
+       margin-right: -250px;
+       overflow-y: auto;
+       -webkit-transition: all 0.5s ease;
+       -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+       transition: all 0.5s ease;
+      }
 
-        #wrapper.toggled #sidebar-wrapper {
-          width: 250px;
-        }
+      /* #wrapper.toggled #sidebar-wrapper {
+       left: -32rem;
+      }*/
 
-        #page-content-wrapper {
-          width: 100%;
-          position: absolute;
-          padding: 15px;
-        }
+      #page-content-wrapper {
+       width: 100%;
+       position: absolute;
+       padding: 15px;
+      }
 
-        #wrapper.toggled #page-content-wrapper {
-          position: absolute;
-          margin-right: 0px;
-        }
-        /* Sidebar Styles */
+      #wrapper.toggled #page-content-wrapper {
+       position: absolute;
+       margin-right: 0px;
+      }
+      /* Sidebar Styles */
 
-        .sidebar-nav {
-          position: fixed;
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          background-color: #242424;
-          display: block;
-          height: 100vh;
-        }
+      .sidebar-nav {
+       position: fixed;
+       margin: 0;
+       padding: 0;
+       list-style: none;
+       background-color: #242424;
+       display: block;
+       height: 100vh;
+      }
 
-        .sidebar-nav li {
-          text-indent: 20px;
-          line-height: 40px;
-        }
+      .sidebar-nav li {
+       text-indent: 20px;
+       line-height: 40px;
+      }
 
-        .sidebar-nav li a {
-          display: block;
-          text-decoration: none;
-          color: #999999;
-        }
+      .sidebar-nav li a {
+       display: block;
+       text-decoration: none;
+       color: #999999;
+      }
 
-        .sidebar-nav li a:hover {
-          text-decoration: none;
-          color: #fff;
-          background: rgba(255, 255, 255, 0.2);
-        }
+      .sidebar-nav li a:hover {
+       text-decoration: none;
+       color: #fff;
+       background: rgba(255, 255, 255, 0.2);
+      }
 
-        .sidebar-nav li a:active, .sidebar-nav li a:focus {
-          text-decoration: none;
-        }
+      .sidebar-nav li a:active, .sidebar-nav li a:focus {
+       text-decoration: none;
+      }
 
-        .sidebar-nav>.sidebar-brand {
-          height: 65px;
-          font-size: 18px;
-          line-height: 60px;
-        }
+      .sidebar-nav>.sidebar-brand {
+       height: 65px;
+       font-size: 18px;
+       line-height: 60px;
+      }
 
-        .sidebar-nav>.sidebar-brand a {
-          color: #999999;
-        }
+      .sidebar-nav>.sidebar-brand a {
+       color: #999999;
+      }
 
-        .sidebar-nav>.sidebar-brand a:hover {
-          color: #fff;
-          background: none;
-        }
+      .sidebar-nav>.sidebar-brand a:hover {
+       color: #fff;
+       background: none;
+      }
 
-        @media(min-width:768px) {
-          #wrapper {            
-            left: -30rem;
-          }
-          #wrapper.toggled {
-            left: 0;
-          }
-          #sidebar-wrapper {
-            width: 0;
-          }
-          #wrapper.toggled #sidebar-wrapper {
-            width: 250px;
-          }
-          #page-content-wrapper {
-            padding: 20px;
-            position: relative;
-          }
-          #wrapper.toggled #page-content-wrapper {
-            position: relative;
-            margin-right: 0;
-          }
+      @media(min-width:768px) {
+       #wrapper {            
+         left: -30rem;
+       }
+       #wrapper.toggled {
+         left: 0;
+       }
+       #sidebar-wrapper {
+         width: 0;
+       }
+       #wrapper.toggled #sidebar-wrapper {
+         width: 250px;
+       }
+       #page-content-wrapper {
+         padding: 20px;
+         position: relative;
+       }
+       #wrapper.toggled #page-content-wrapper {
+         position: relative;
+         margin-right: 0;
+       }
+
+       .content{
+         position: absolute;
+         right: 0;
+       }
 
     </style>
 </head>
@@ -193,10 +197,11 @@
                 <li> <a href="#">Check-out</a> </li>
                 <li> <a href="#">Revenue Statistics</a> </li>
                 <li> <a href="#">Booking rate</a> </li>
+                <li> <a href="#">Manager room</a> </li>
             </ul>
         </div>
     </div>
-    <div> @yield('content') </div>
+    <div class="col-10 content"> @yield('content') </div>
 
     
     <div class="scroll-to-top" style="background-image: url('img/arrow-up.svg');"></div>

@@ -12,6 +12,8 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\MessageBag;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class PageController extends Controller
@@ -214,6 +216,14 @@ class PageController extends Controller
     }
 
     public function getAdmin(){
-        return view('page.index-admin');
+
+        $date = date('Y-m-d', strtotime(Carbon::now()));
+        // $res = Reservation::where('date_in',$date)->get();
+        $res = DB::table('reservation')
+        ->join('customer','customer.id','reservation.id_customer')
+        ->where('reservation.date_in', '=',$date)
+        ->get();
+        // dd($i);
+        return view('page.index-admin',compact('res'));
     }
 }

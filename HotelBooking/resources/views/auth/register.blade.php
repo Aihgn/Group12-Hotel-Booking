@@ -36,10 +36,10 @@
                                 @endif
                             </div>
 
-                            <div class="input-field">
+                            <!--<div class="input-field">
                                 <label for="phone_number">{{ __('Phone number') }}</label>
                                 <input id="phone_number" type="text" class="{{ $errors->has('phone') ? ' is-invalid' : '' }} color-white" name="phone_number" value="{{ old('phone') }}" required>
-                            </div>
+                            </div>-->
 
                              <!--<div class="input-field">
                                 <label for="address">{{ __('Address') }}</label>

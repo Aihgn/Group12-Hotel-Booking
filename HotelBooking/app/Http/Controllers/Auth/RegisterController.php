@@ -11,7 +11,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Lang;
 use Illuminate\Http\Request;
 
-
 class RegisterController extends Controller
 {
     /*
@@ -59,7 +58,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone_number'=>['required'],
         ]);
     }
 
@@ -71,12 +69,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
         $id = $user->id;
         Customer::create([
             'name' => $data['name'],
@@ -85,24 +83,6 @@ class RegisterController extends Controller
         ]);
         return $user;
     }
-
-       /** public function postRegister(Request $req){
-            $this->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone_number'=>['required'],
-                ]);
-            $user= new User();
-            $user->name = $req->name;
-            $user->mail = $req->email;
-            $user->password = hash::make($req->password);
-            $user->save();
-            $customer= new Customer();
-            $customer->phone_number = $req->phone_number;
-            $customer->save();
-
-        }*/
 
     protected function registered(Request $request, $user)
     {

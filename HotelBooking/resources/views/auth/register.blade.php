@@ -36,16 +36,6 @@
                                 @endif
                             </div>
 
-                            <!--<div class="input-field">
-                                <label for="phone_number">{{ __('Phone number') }}</label>
-                                <input id="phone_number" type="text" class="{{ $errors->has('phone') ? ' is-invalid' : '' }} color-white" name="phone_number" value="{{ old('phone') }}" required>
-                            </div>-->
-
-                             <!--<div class="input-field">
-                                <label for="address">{{ __('Address') }}</label>
-                                <input id="address" type="text" class="{{ $errors->has('address') ? ' is-invalid' : '' }} color-white" name="address" value="{{ old('address') }}" required>
-                            </div>-->
-
                             <div class="input-field">
                                 <label for="password" >{{ __('Password') }}</label>
                                 <input id="password" type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }} color-white" name="password" required>

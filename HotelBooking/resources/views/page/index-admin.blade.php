@@ -23,9 +23,11 @@
     			<td>{{$r->date_out}}</td>
     			@if($r->status == 0)
 					<td><span class="stt-p p-2">Pending</span></td>
-					<td class="p-1"><button class="p-1">Check-in</button></td>
-				@else
-					<td><span class="stt-d p-2">Done</span></td>
+					<td class="p-1"><a href="{{route('check-in',$r->id)}}" class="bttn btn-invert pb-2 pt-2 pl-1 pr-1">Check-in</a></td>
+				@elseif($r->status ==2)
+					<td><span class="stt-c p-2">Cancel</span></td>
+                @else
+                    <td><span class="stt-d p-2">Done</span></td>
 				@endif
     		</tr>    		
     		@endforeach

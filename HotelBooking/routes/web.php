@@ -78,3 +78,9 @@ route::get('booking',[
  	'uses'=>'PageController@getAdmin'
 
  ]);
+
+  Route::get('admin/{id}',[
+ 	'as'=>'check-in',
+ 	'uses'=>'PageController@getCheckin'
+
+ ]);

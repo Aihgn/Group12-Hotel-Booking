@@ -296,16 +296,16 @@
 
 		
 		
-		/* Range slider */
+		// /* Range slider */
 		
-		var range = $('.input-range'),
-		value = $('.range-value');
+		// var range = $('.input-range'),
+		// value = $('.range-value');
 
-		value.html(range.attr('value') + ' $');
+		// value.html(range.attr('value') + ' $');
 
-		range.on('input', function() {
-			value.html(this.value + ' $');
-		});		
+		// range.on('input', function() {
+		// 	value.html(this.value + ' $');
+		// });		
 					
 	});
 	//Account
@@ -318,21 +318,7 @@
 		$(document).on('click', function(){ 
 			$(".clicked").removeClass("clicked");
 		});
-		
-	// HeaderBtn
-		var headerbtn = document.getElementById('HeaderButton');
-
-		headerbtn.style.cursor = 'pointer';
-		headerbtn.onclick = function() {
-		    // do something...
-		};
-		
-		headerbtn.onmouseover = function() {
-		    this.style.backgroundColor = '#fff';
-		};
-		headerbtn.onmouseout = function() {
-		    this.style.backgroundColor = '';
-		};
+	
 
 	
   })(jQuery); 

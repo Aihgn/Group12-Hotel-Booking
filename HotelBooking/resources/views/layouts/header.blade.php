@@ -5,11 +5,11 @@
 		<div class="menu-top background-black">
 			<div class="container">
 				<div class="row">
-					<div class="col-6 px-0 px-md-3 pl-1 py-3">
+					<div class="col-4 px-0 px-md-3 pl-1 py-3">
 						<span class="call-top">call us:</span> 
 						<a href="#" class="call-top">(+84) 888 888 888</a>
 					</div>	
-					<div class="col-6 text-right">
+					<div class="col-8 text-right">
 						@guest
 						<div class="px-0 px-md-3 pl-1 py-3">
 							<a href="{{route('login')}}" class="account-top">log in</a>

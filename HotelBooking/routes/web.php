@@ -37,6 +37,16 @@ Route::get('myaccount',[
 	'uses'=>'PageController@getMyAccount'
 ]);
 
+Route::post('myaccount',[
+	'as'=>'myaccount',
+	'uses'=>'PageController@postMyAccount'
+]);
+
+Route::post('myaccount/change-password',[
+	'as'=>'change-password',
+	'uses'=>'PageController@changePassword'
+]);
+
 route::get('guestbooking', [
 	'as'=>'guestbooking',
 	'uses'=>'PageController@getGuestBooking'
@@ -53,11 +63,18 @@ route::get('booking',[
  	'uses'=>'PageController@postBooking'
  ]);
 
- /**route::get('register',[
-	'as'=>'register',
-	'uses'=>'RegisterController@getRegister'
-]);
- route::post('register',[
-	'as'=>'register',
-	'uses'=>'RegisterController@postRegister'
-]);
+ Route::get('/booking/add_room',[
+ 	'as'=>'add_room.action',
+ 	'uses'=>'PageController@addRoom'
+ ]);
+
+  Route::get('/booking/remove_room',[
+ 	'as'=>'remove_room.action',
+ 	'uses'=>'PageController@removeRoom'
+ ]);
+
+ Route::get('admin',[
+ 	'as'=>'admin',
+ 	'uses'=>'PageController@getAdmin'
+
+ ]);

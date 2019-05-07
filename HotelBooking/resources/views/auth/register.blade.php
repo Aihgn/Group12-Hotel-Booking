@@ -5,7 +5,7 @@
     <div class="form-center-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-8 col-sm-6">                            
+                <div class="col-12 col-xl-6 col-lg-8 col-md-10">                            
                     <div class="input-form">
                         <h1 class="text-center">Register</h1>
                         @if(Session::has('success'))
@@ -62,8 +62,8 @@
                                 <input id="password-confirm" type="password"  name="password_confirmation" class="color-white" required>
                             </div>
 
-                            <div class="button-div text-center col-6  col-sm-4 col-lg-12">                                
-                                <button type="submit" class="input-button">
+                            <div class="button-div text-center col-12">                                
+                                <button type="submit" class="input-button pt-2 pb-2">
                                     {{ __('Register') }}
                                 </button>                                
                             </div>

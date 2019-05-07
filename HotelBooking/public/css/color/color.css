@@ -12,6 +12,7 @@
 .call-top:hover,
 .account-help,
 .pill,
+.tb-mybooking >thead>tr,
 #navbarDropdown,
 .input-field label,
 .footer-bottom .fa:hover,
@@ -21,7 +22,8 @@
 .list-style.circle li:before,
 .list-style.circle-o li:before,
 .list-style li i,
-.list-style a.btn-link:hover{
+.list-style a.btn-link:hover,
+.flag_failed{
 	color: #ed254e;
 }
 .js .loading::after,
@@ -56,7 +58,7 @@
 .booking-button,
 .input-button,
 .menu > ul > li a span,
-.btn.btn-primary:hover,
+.bttn.btn-primary:hover,.bttn.btn-invert,
 .room-box-in a:hover,
 .subtitle.with-line:after,
 .booking-button-big:hover,

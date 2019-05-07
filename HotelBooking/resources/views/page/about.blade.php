@@ -8,10 +8,10 @@
 			<div class="form-center-section">
 				<div class="container">
 					<div class="row justify-content-center">
-						<div class="col-10 col-sm-8">							
+						<div class="col-12 col-lg-7">							
 							<div class="input-form">
 								<h1 class="text-center mb-4">About Us</h1>	
-								<div  class="text-center col-6 col-sm-4 col-lg-12 mb-3">
+								<div  class="text-center mb-3">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

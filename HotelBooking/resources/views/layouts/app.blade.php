@@ -13,7 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/plugins.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script><!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!--Jquery-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script><!--boostrap-->
     
     <!-- Favicon -->

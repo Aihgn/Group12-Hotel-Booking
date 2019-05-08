@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\MessageBag;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Room;
 
 
 class PageController extends Controller
@@ -232,5 +233,12 @@ class PageController extends Controller
                         'status'=>'1',
             ));
         return redirect()->back();
+    }
+
+    public function getManagerRoom(){
+
+        $room = Room::all();
+        // dd($room);
+        return view('page.manager-room',compact('room'));
     }
 }

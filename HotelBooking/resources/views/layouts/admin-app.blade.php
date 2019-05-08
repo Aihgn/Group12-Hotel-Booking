@@ -162,8 +162,8 @@
             <div class="col-8 col-md-10 text-right">
                 @guest
                     <div class="px-0 px-md-3 pl-1 py-3">
-                        <a href="{{route('login')}}" class="account-top">log in</a>
-                        <a href="{{route('register')}}" class="account-top">register</a>
+                        <a href="#" class="account-top">log in</a>
+                        <a href="#" class="account-top">register</a>
                     </div>
                 @else   
                     <div class="account-wrap">
@@ -191,7 +191,7 @@
     <div id="wrapper" class="toggled">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav col-12 col-md-3 col-lg-2">
-                <li class="sidebar-brand"> <a href="#">Home</a> </li>
+                <li class="sidebar-brand"> <a href="{{route('admin')}}">Home</a> </li>
                 <li> <a href="#">Booking</a> </li>
                 <li> <a href="#">Check-in</a> </li>
                 <li> <a href="#">Check-out</a> </li>

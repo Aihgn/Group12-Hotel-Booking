@@ -226,4 +226,11 @@ class PageController extends Controller
         // dd($i);
         return view('page.index-admin',compact('res'));
     }
+
+    public function getCheckin($id){
+        Reservation::where('id_customer',$id)->update(array(
+                        'status'=>'1',
+            ));
+        return redirect()->back();
+    }
 }

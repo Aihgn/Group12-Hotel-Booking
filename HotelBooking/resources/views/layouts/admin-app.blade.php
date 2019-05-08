@@ -197,7 +197,7 @@
                 <li> <a href="#">Check-out</a> </li>
                 <li> <a href="#">Revenue Statistics</a> </li>
                 <li> <a href="#">Booking rate</a> </li>
-                <li> <a href="#">Manager room</a> </li>
+                <li> <a href="{{route('manager-room')}}">Manager room</a> </li>
             </ul>
         </div>
     </div>

@@ -241,4 +241,14 @@ class PageController extends Controller
         // dd($room);
         return view('page.manager-room',compact('room'));
     }
+    public function cancelReservation($id){
+        $id_c = Auth::user()->id;
+        // dd($id,$id_c);
+        Reservation::where('id',$id)->where('id_customer',$id_c)->update(array(
+                        'status'=>2,
+            ));
+        return redirect()->back();
+        
+    }
+
 }

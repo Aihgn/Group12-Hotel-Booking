@@ -87,3 +87,7 @@ Route::get('manager-room',[
 	'as'=>'manager-room',
 	'uses'=>'PageController@getManagerRoom'
 ]);
+Route::get('cancel-reservation/{id}',[
+	'as'=>'cancel-res',
+	'uses'=>'PageController@cancelReservation'
+]);

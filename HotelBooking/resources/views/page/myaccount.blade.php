@@ -102,7 +102,10 @@
 		                        			
 	                        				@if($b_i->status == 0)
 	                        					<td><span class="stt-p p-2">Pending</span></td>
-	                        					<td class="p-1"><button class="input-button p-1">Cancel</button></td>
+	                        					<td class="p-1"><a onclick="return confirm('Are you sure?')" href="{{route('cancel-res',$b_i->id)}}" class="bttn btn-invert pb-2 pt-2 pl-1 pr-1 cancel-res">Cancel</a></td>
+	                        				@elseif($b_i->status ==2)
+	                        					<td><span class="stt-c p-2">Cancel</span></td>
+	                        					<td></td>
 	                        				@else
 	                        					<td><span class="stt-d p-2">Done</span></td>
 	                        					<td></td>
@@ -121,6 +124,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
 	$(".change_info-btn").click(function(){
 		$.ajax({
 			url:"{{route('myaccount')}}",
@@ -192,6 +196,14 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	 function clicked() {
+       if (confirm('Do you want to submit?')) {
+           yourformelement.submit();
+       } else {
+           return false;
+       }
+    }
 });
 </script>
 @endsection

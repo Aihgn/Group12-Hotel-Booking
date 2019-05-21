@@ -219,12 +219,10 @@ class PageController extends Controller
     public function getAdmin(){
 
         $date = date('Y-m-d', strtotime(Carbon::now()));
-        // $res = Reservation::where('date_in',$date)->get();
         $res = DB::table('reservation')
         ->join('customer','customer.id','reservation.id_customer')
         ->where('reservation.date_in', '=',$date)
         ->get();
-        // dd($i);
         return view('page.index-admin',compact('res'));
     }
 
@@ -235,13 +233,14 @@ class PageController extends Controller
         return redirect()->back();
     }
 
-    public function getManagerRoom(){
-
+    public function getManagerRoom()
+    {
         $room = Room::all();
-        // dd($room);
         return view('page.manager-room',compact('room'));
     }
-    public function cancelReservation($id){
+
+    public function cancelReservation($id)
+    {
         $id_c = Auth::user()->id;
         // dd($id,$id_c);
         Reservation::where('id',$id)->where('id_customer',$id_c)->update(array(
@@ -251,4 +250,38 @@ class PageController extends Controller
         
     }
 
+    public function getResInfo(Request $req)
+    {        
+        if($req->ajax())
+        {   
+            $date = date('Y-m-d', strtotime($req->get('date')));
+            $res = DB::table('reservation')
+            ->join('customer','customer.id','reservation.id_customer')
+            ->where('reservation.date_in', '=',$date)
+            ->get();           
+            echo json_encode($res);
+        }
+    }
+
+    public function getBookOff(){
+        $room = Room::all();
+        return view('page.book-off',compact('room'));
+    }
+
+    public function postBookOff(){
+        $reservation = new Reservation();        
+        
+        $customer = new Customer();
+        $customer->name = $req->name;
+        $customer->email = $req->email;
+        $customer->phone_number = $req->phone_number;
+        $customer->save();
+        $reservation->id_customer = $customer->id;
+        
+        $reservation->total='1';            
+        $reservation->date_in = date('Y-m-d', strtotime($req->start));
+        $reservation->date_out = date('Y-m-d', strtotime($req->end));
+        $reservation->save();
+        return redirect()->back();
+    }
 }

@@ -13,7 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/plugins.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script><!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!--Jquery-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script><!--boostrap-->
 
     <!-- Styles -->
@@ -31,123 +31,158 @@
 
     <!-- Boostrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
     <style type="text/css">
+    body{
+        background-color: #212529;
+    }
 
-      #wrapper {
-      position: fixed;
-      left: 0;
-      -webkit-transition: all 0.5s ease;
-      -moz-transition: all 0.5s ease;
-      -o-transition: all 0.5s ease;
-      transition: all 0.5s ease;
-      }
+    #wrapper {
+        position: fixed;
+        left: 0;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
 
-      #wrapper.toggled {
-       left: -32rem;
-      }
+    #wrapper.toggled {
+        left: -100%;
+    }
+    #wrapper.resize-wrapper{
+        left: -100%;
+    }
 
-      #sidebar-wrapper {
-       z-index: 1000;
-       position: fixed;
-       /*right: 250px;*/
-       width: 0;
-       height: 100%;
-       margin-right: -250px;
-       overflow-y: auto;
-       -webkit-transition: all 0.5s ease;
-       -moz-transition: all 0.5s ease;
-       -o-transition: all 0.5s ease;
-       transition: all 0.5s ease;
-      }
+    #sidebar-wrapper {
+        z-index: 1000;
+        position: fixed;
+        /*right: 250px;*/
+        width: 0;
+        height: 100%;
+        margin-right: -250px;
+        overflow-y: auto;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
 
-      /* #wrapper.toggled #sidebar-wrapper {
-       left: -32rem;
-      }*/
+    /* #wrapper.toggled #sidebar-wrapper {
+    left: -32rem;
+    }*/
 
-      #page-content-wrapper {
-       width: 100%;
-       position: absolute;
-       padding: 15px;
-      }
+    #page-content-wrapper {
+        width: 100%;
+        position: absolute;
+        padding: 15px;
+    }
 
-      #wrapper.toggled #page-content-wrapper {
-       position: absolute;
-       margin-right: 0px;
-      }
-      /* Sidebar Styles */
+    #wrapper.toggled #page-content-wrapper {
+        position: absolute;
+        margin-right: 0px;
+    }
+    /* Sidebar Styles */
 
-      .sidebar-nav {
-       position: fixed;
-       margin: 0;
-       padding: 0;
-       list-style: none;
-       background-color: #242424;
-       display: block;
-       height: 100vh;
-      }
+    .sidebar-nav {
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #242424;
+        display: block;
+        height: 100vh;
+    }
 
-      .sidebar-nav li {
-       text-indent: 20px;
-       line-height: 40px;
-      }
+    .sidebar-nav li {
+        text-indent: 20px;
+        line-height: 40px;
+    }
 
-      .sidebar-nav li a {
-       display: block;
-       text-decoration: none;
-       color: #999999;
-      }
+    .sidebar-nav li a {
+        display: block;
+        text-decoration: none;
+        color: #999999;
+    }
 
-      .sidebar-nav li a:hover {
-       text-decoration: none;
-       color: #fff;
-       background: rgba(255, 255, 255, 0.2);
-      }
+    .sidebar-nav li a:hover {
+        text-decoration: none;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.2);
+    }
 
-      .sidebar-nav li a:active, .sidebar-nav li a:focus {
-       text-decoration: none;
-      }
+    .sidebar-nav li a:active, .sidebar-nav li a:focus {
+        text-decoration: none;
+    }
 
-      .sidebar-nav>.sidebar-brand {
-       height: 65px;
-       font-size: 18px;
-       line-height: 60px;
-      }
+    .sidebar-nav>.sidebar-brand {
+        height: 65px;
+        font-size: 18px;
+        line-height: 60px;
+    }
 
-      .sidebar-nav>.sidebar-brand a {
-       color: #999999;
-      }
+    .sidebar-nav>.sidebar-brand a {
+        color: #999999;
+    }
 
-      .sidebar-nav>.sidebar-brand a:hover {
-       color: #fff;
-       background: none;
-      }
+    .sidebar-nav>.sidebar-brand a:hover {
+        color: #fff;
+        background: none;
+    }
 
-      @media(min-width:768px) {
-       #wrapper {            
-         left: -30rem;
-       }
-       #wrapper.toggled {
+    @media only screen and (min-width: 768px) {
+        #wrapper {            
+         left: -100%;
+        }
+        #wrapper.toggled {
          left: 0;
-       }
-       #sidebar-wrapper {
+        }
+        #sidebar-wrapper {
          width: 0;
-       }
-       #wrapper.toggled #sidebar-wrapper {
+        }
+        #wrapper.toggled #sidebar-wrapper {
          width: 250px;
-       }
-       #page-content-wrapper {
+        }
+        #page-content-wrapper {
          padding: 20px;
          position: relative;
-       }
-       #wrapper.toggled #page-content-wrapper {
+        }
+        #wrapper.toggled #page-content-wrapper {
          position: relative;
          margin-right: 0;
-       }
+        }
+        #content.toggled-con{
+            -ms-flex: 0 0 84%;
+            flex: 0 0 84%;
+            max-width: 84%;
+            transition: all 0.5s ease;
+        }
+        #content{
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            transition: all 0.5s ease;
+        }
+    }
 
-       .content{
-         position: absolute;
-         right: 0;
-       }
+    .content{
+        width: 100%;
+        position: absolute;
+        right: 0;
+        transition: all 0.5s ease;
+    }
+    /*#content.toggled-con{
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        transition: all 0.5s ease 200ms;
+    }
+    #content{
+        -ms-flex: 0 0 84%;
+        flex: 0 0 84%;
+        max-width: 84%;
+        transition: all 0.5s ease 200ms;
+    }*/
+
 
     </style>
 </head>
@@ -188,41 +223,45 @@
             </div>
         </nav>
     </div>
-    <div id="wrapper" class="toggled">
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav col-12 col-md-3 col-lg-2">
-                <li class="sidebar-brand"> <a href="{{route('admin')}}">Home</a> </li>
-                <li> <a href="#">Booking</a> </li>
-                <li> <a href="#">Check-in</a> </li>
-                <li> <a href="#">Check-out</a> </li>
-                <li> <a href="#">Revenue Statistics</a> </li>
-                <li> <a href="#">Booking rate</a> </li>
-                <li> <a href="{{route('manager-room')}}">Manager room</a> </li>
-            </ul>
+    <div class="fluid-container">
+        <div id="wrapper" class="toggled">
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav col-12 col-md-3 col-lg-2">
+                    <li class="sidebar-brand"> <a href="{{route('admin')}}">Home</a> </li>
+                    <li> <a href="{{route('book-off')}}">Booking</a> </li>
+                    <li> <a href="#">Check-in</a> </li>
+                    <li> <a href="#">Check-out</a> </li>
+                    <li> <a href="#">Revenue Statistics</a> </li>
+                    <li> <a href="#">Booking rate</a> </li>
+                    <li> <a href="{{route('manager-room')}}">Manager room</a> </li>
+                </ul>
+            </div>
         </div>
+
+        <div class="container content toggled-con" id="content"> @yield('content') </div>
     </div>
-    <div class="col-10 content"> @yield('content') </div>
+    
 
     
     <div class="scroll-to-top" style="background-image: url('img/arrow-up.svg');"></div>
     
-<script src="js/bootstrap.bundle.min.js"></script> <!-- Menu Toggle Script -->
 <script>
-  $(function(){
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+    $(function(){
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            $("#content").toggleClass("toggled-con");
+        });
+
+        $(window).resize(function(e) {
+            if($(window).width()<=768){
+                $("#wrapper").toggleClass("toggled");
+            }else{
+                $("#wrapper").toggleClass("toggled");
+            }
+        });
     });
 
-    $(window).resize(function(e) {
-      if($(window).width()<=768){
-        $("#wrapper").removeClass("toggled");
-      }else{
-        $("#wrapper").addClass("toggled");
-      }
-    });
-  });
-   
 </script>
 </body>
 </html>

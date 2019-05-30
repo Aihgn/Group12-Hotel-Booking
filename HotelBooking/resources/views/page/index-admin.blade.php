@@ -64,7 +64,7 @@
                         dataType: 'json',
                         success:function(data)
                         {                  
-                            $('tbody').html('');
+                            $('#tbody').html('');
                             var i=0;     
                             for (var key in data) {                                
                                 i++;

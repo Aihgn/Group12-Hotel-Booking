@@ -343,10 +343,13 @@
 							<div class="total-amount" >
 								<table >
 									<td class="text-left">
-										<span>Total reservation amount</span>
+										<span>Total reservation amount: $</span>
 									</td>
 									<td class="text-right">
-										<span id="total_amount"></span>
+										{{-- <span id="total_amount"></span> --}}
+										<div class="input-field">
+								            <input id="total_amount" type="text" class="color-white" name="total_amount" value="" required readonly="">
+								        </div>
 									</td>
 								</table>
 							</div>
@@ -589,7 +592,7 @@
 						$('.room-cart').append(data.room);
 						$('.detail').append(data.detail);
 						total_amount+=data.room_price;
-						$('#total_amount').html('$'+total_amount);
+						$('#total_amount').val(total_amount);
 					}
 				});		
 				if(i==j){

@@ -146,7 +146,7 @@ class PageController extends Controller
             $customer->save();
             $reservation->id_customer = $customer->id;
         }
-        $reservation->total='1';            
+        $reservation->total=$req->total_amount;            
         $reservation->date_in = date('Y-m-d', strtotime($req->start));
         $reservation->date_out = date('Y-m-d', strtotime($req->end));
         $reservation->save();
@@ -264,11 +264,11 @@ class PageController extends Controller
     }
 
     public function getBookOff(){
-        $room = Room::all();
+        $room =Room::all();
         return view('page.book-off',compact('room'));
     }
 
-    public function postBookOff(){
+    public function postBookOff(Request $req){
         $reservation = new Reservation();        
         
         $customer = new Customer();
@@ -278,10 +278,20 @@ class PageController extends Controller
         $customer->save();
         $reservation->id_customer = $customer->id;
         
-        $reservation->total='1';            
+        $reservation->total=$req->total;            
         $reservation->date_in = date('Y-m-d', strtotime($req->start));
         $reservation->date_out = date('Y-m-d', strtotime($req->end));
         $reservation->save();
         return redirect()->back();
+    }
+
+
+     public function getBookOffTotal(Request $req){
+        if($req->ajax())
+        {   
+            $id = $req->get('id');  
+            $count =RoomType::where('id',$id)->get();           
+            echo json_encode($count);
+        }
     }
 }

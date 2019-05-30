@@ -106,3 +106,8 @@ Route::post('book-off',[
 	'as'=>'book-off',
 	'uses'=>'PageController@postBookOff'
 ]);
+
+Route::get('book-off/count',[
+	'as'=>'book-off.action',
+	'uses'=>'PageController@getBookOffTotal'
+]);

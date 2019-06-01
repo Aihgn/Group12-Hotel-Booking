@@ -1,26 +1,7 @@
 @extends('layouts.admin-app')
 @section('content')
 	{{-- <input class="m-3" type="" name=""> --}}
-    <div class="fluid-container p-0">
-        <div class="row">
-            <div class="ml-5 pt-3 justify-content-center color-white">
-                Select date:
-            </div>
-            <div class="input-daterange input-group col-7 ml-5 pt-2" id="flight-datepicker">
-                <div class="row">   
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="form-item">
-                            <span class="fontawesome-calendar"></span>
-                            <input class="input-sm color-black" type="text" autocomplete="off" id="date-pick" name="start" placeholder="date" data-date-format="dd/mm/yyyy"/ readonly>
-                            <span class="date-text date-depart"></span>
-                        </div>                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-	<table class="table table-dark table-hover">
+	<table class="table table-hover">
     	<thead>
     		<tr>
     			<th>No.</th>	
@@ -32,7 +13,7 @@
     			<th></th>
     		</tr>
     	</thead>
-    	<tbody id="tbody">    		
+    	<tbody>    		
     		@foreach($res as $i=>$r)    
     		<tr>
     			<td>{{$i+1}}</td>
@@ -52,6 +33,7 @@
     		@endforeach
     	</tbody>
     </table>
+<<<<<<< HEAD
     <script type="text/javascript">
         $(document).ready(function(){
             $('#date-pick').on('change', function(){     
@@ -116,4 +98,6 @@
             });
         });
     </script>
+=======
+>>>>>>> parent of 96a765a... update
 @endsection

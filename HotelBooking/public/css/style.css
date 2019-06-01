@@ -1977,33 +1977,3 @@ a.account-help:hover{
     background-color: #cf2b2b;
     color: #fff;
 }
-/*===================================*/
-    .box-room{
-        width: 70px;
-        height: 70px;
-        display: inline-block;
-        vertical-align: middle;
-        font-size: 20px;
-        text-align: center;
-        line-height: 65px;
-    }
-    .type-1{
-        background: transparent;
-        border:2px solid #f71708;
-    }
-    .type-2{
-        background: transparent;
-        border:2px solid #e5be00;
-    }
-    .type-3{
-        background: transparent;
-        border:2px solid #0ace10;
-    }
-    .type-4{
-        background: transparent;
-        border:2px solid #0a10ca;
-    }
-    .used{
-        border: 2px solid #414141;
-        background: #4e4e4e;
-    }

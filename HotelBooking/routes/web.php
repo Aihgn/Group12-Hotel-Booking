@@ -91,6 +91,7 @@ Route::get('cancel-reservation/{id}',[
 	'as'=>'cancel-res',
 	'uses'=>'PageController@cancelReservation'
 ]);
+<<<<<<< HEAD
 
 Route::get('pick-date',[
 	'as'=>'admin.action',
@@ -111,3 +112,5 @@ Route::get('book-off/count',[
 	'as'=>'book-off.action',
 	'uses'=>'PageController@getBookOffTotal'
 ]);
+=======
+>>>>>>> parent of 96a765a... update

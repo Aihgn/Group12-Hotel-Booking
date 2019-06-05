@@ -91,6 +91,8 @@ Route::get('cancel-reservation/{id}',[
 	'as'=>'cancel-res',
 	'uses'=>'PageController@cancelReservation'
 ]);
+
+
 Route::get('pick-date',[
 	'as'=>'admin.action',
 	'uses'=>'PageController@getResInfo'
@@ -110,4 +112,3 @@ Route::get('book-off/count',[
 	'as'=>'book-off.action',
 	'uses'=>'PageController@getBookOffTotal'
 ]);
-

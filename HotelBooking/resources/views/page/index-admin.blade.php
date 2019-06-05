@@ -33,8 +33,6 @@
     		@endforeach
     	</tbody>
     </table>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <script type="text/javascript">
         $(document).ready(function(){
             $('#date-pick').on('change', function(){     
@@ -99,8 +97,4 @@
             });
         });
     </script>
-=======
->>>>>>> parent of 96a765a... update
-=======
->>>>>>> parent of 96a765a... update
 @endsection

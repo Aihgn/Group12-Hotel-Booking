@@ -250,8 +250,6 @@ class PageController extends Controller
         return redirect()->back();
         
     }
-
-
     public function getResInfo(Request $req)
     {        
         if($req->ajax())

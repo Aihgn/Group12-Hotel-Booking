@@ -251,8 +251,7 @@ class PageController extends Controller
         
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     public function getResInfo(Request $req)
     {        
         if($req->ajax())
@@ -297,8 +296,4 @@ class PageController extends Controller
             echo json_encode($count);
         }
     }
-=======
->>>>>>> parent of 96a765a... update
-=======
->>>>>>> parent of 96a765a... update
 }

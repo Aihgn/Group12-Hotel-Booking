@@ -62,18 +62,7 @@
 		.active-tab{
 			background-color: #ed254ebf;
 		}
-
-		/*Room & guest*/
-
-		#add-room{
-			color:#ed254e;
-		}
-
-		#add-room:hover{
-			text-decoration: none;
-			color: #fcfcfc;
-		}
-
+		
 		/*Date of stay*/
 		.disabled-btn{			
 
@@ -141,8 +130,7 @@
 			display: flex;
 			color:#fff;
 		}
-		.customer_info{
-			border-right: 1px dotted #ed254e;
+		.customer_info{			
 			border-left: 1px dotted #ed254e;
 		}
 		.total-amount{
@@ -209,59 +197,23 @@
 	<div class="fluid-container">
 		
 		<div class="nav nav-tabs border-bottom-0" id="tabMenu">
-			<a class="HearderButton col-1 justify-content-center" href="{{route('home')}}" target="_blank" >Home</a>
-			<a class="HearderButton col-3 justify-content-center active" data-toggle="tab" id="qty-header" href="#qty">Guest & room</a>
+			<a class="HearderButton col-3 justify-content-center" href="{{route('home')}}" target="_blank" >Home</a>			
 			<a class="HearderButton col-3 justify-content-center" id="date-pick-header" data-toggle="tab" href="#date-pick">Date of stay</a>			
 			<div class="dropdown col-3 p-0">
 			    <a class="HearderButton justify-content-center" id="room-pick-header" data-toggle="tab" href="#room-pick">Accomodations</a>		
 				<div class="room-cart dropdown-menu col-12 p-0" aria-labelledby="dropdownMenuButton"></div>
 			</div>	
-			<a class="HearderButton col-2 justify-content-center" id="total-header" data-toggle="tab" href="#total">Total</a>
+			<a class="HearderButton col-3 justify-content-center" id="total-header" data-toggle="tab" href="#total">Total</a>
 		</div>	
 
 		
 
 		<form method="POST" action="{{ route('booking') }}">
 			 @csrf
-			<div class="tab-content">
-				{{-- qty
-					======================================== --}}
-				<div id="qty" class="tab-pane active">
-					<h1 class="text-center mb-4 mt-4 color-white">Guest & room</h1>
-					<div  id="container-add-room" >
-						<div class="guest-room row justify-content-center">
-							<div class="row col-12 col-lg-6 col-md-8 col-sm-10 mt-5 justify-content-center">
-								<a href="#" class="sub-room" id="sub-room" style="visibility: hidden;"><ion-icon name="close" style="font-size: 40px; color:#fff;"></ion-icon></a>
-								<div class="col-5">
-									<select name="adults" class="wide">
-										<option data-display="1 adults" value="1">1 adults</option>
-										<option value="2">2 adults</option>
-										<option value="3">3 adults</option>
-									</select>
-								</div>
-								<div class="col-5">
-									<select name="children" class="wide">
-										<option data-display="Children">Children</option>
-										<option value="1">1 children</option>
-										<option value="2">2 children</option>
-										<option value="3">3 children</option>
-									</select>
-								</div>								
-							</div>
-						</div>		
-					</div>				
-					<div class="mb-5 mt-4 text-center">
-						<a href="#" id="add-room">Add a room</a>
-					</div>		
-					<div class="row justify-content-center">
-						<div class="row text-center  ">
-							<button class="update-btn input-button col-12 p-4" data-toggle="tab" href="#date-pick">{{ __('Update room & guest') }}</button>
-						</div>						
-					</div>
-				</div>
+			<div class="tab-content">				
 				{{-- date-pick
 					================================================= --}}
-				<div id="date-pick" class="tab-pane">
+				<div id="date-pick" class="tab-pane active">
 					<h1 class="text-center mb-4 mt-4 color-white">Date picker</h1>
 					<div class="row justify-content-center">
 						<div class="col-5 mt-5">
@@ -335,8 +287,8 @@
 					======================================= --}}
 				<div id="total" class="tab-pane">
 					<h1 class="text-center mb-4 mt-4 color-white">Total</h1>
-					<div class="payment row">
-						<div class="col-12 col-lg-4 pl-5 pr-5 mb-5 mt-5">
+					<div class="payment row justify-content-center">
+						<div class="col-10 col-lg-6 pl-5 pr-5 mb-5 mt-5">
 							<h5 class="text-center color-white">Your reservation</h5>
 							<div class="detail mt-2 mb-3">
 							</div>
@@ -354,7 +306,7 @@
 								</table>
 							</div>
 						</div>
-						<div class="customer_info col-12 col-lg-4 pl-5 pr-5 mb-5 mt-5">
+						<div class="customer_info col-10 col-lg-6 pl-5 pr-5 mb-5 mt-5">
 							<h5 class="text-center color-white">Your infomation</h5>
 							@guest
 								<div class="input-field"> 
@@ -399,29 +351,14 @@
 	                            	<label for="phone_number">{{ __('Phone number:')}}</label>
 	                                <input id="phone_number" type="text" class="color-white" value="{{$acc_info[0]->phone_number}}" required>   
 	                            </div>
-                            @endguest
-                            	
-						</div>
-						<div class="col-12 col-lg-4 pl-5 pr-5 mt-5">
-							<h5 class="text-center color-white">Payment Method</h5>
-							<div class="input-field">
-                            	<label for="name-on-card">{{ __('Name on Card:')}}</label>
-                                <input id="name-on-card" type="text" class="color-white" required>   
-                            </div>	
-                            <div class="input-field">
-                            	<label for="card_number">{{ __('Card number:')}}</label>
-                                <input id="card_number" type="text" class="color-white" required>   
-                            </div>	
-                            <div class="input-field">
-                            	<label for="expiration-date">{{ __('Expiration date:')}}</label>
-                                <input id="expiration-date" type="text" class="color-white" placeholder="MM/YY" required>   
-                            </div>	
-							<div class="button-div text-center col-12">                                
+                            @endguest     
+                            <div class="button-div text-center col-12">                                
 	                            <button type="submit" class="input-button p-3">
 	                                {{ __('Book now') }}
 	                            </button>                                
-	                        </div>
+	                        </div>                       	
 						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -446,69 +383,6 @@
 				document.getElementById('lds-ring').style.display="none";
 			}, 400);
 		});
-
-
-		//active tab color
-		 document.getElementById("qty-header").classList.add("active-tab");
-		$(document).click(function(){
-			var id = $('.tab-content .active').attr('id');
-			if (id == "qty") {
-		        document.getElementById("qty-header").classList.add("active-tab");
-		        document.getElementById("date-pick-header").classList.remove("active-tab");
-		        document.getElementById("room-pick-header").classList.remove("active-tab");
-		        document.getElementById("total-header").classList.remove("active-tab");
-		    }else if (id == "date-pick"){
-		    	document.getElementById("date-pick-header").classList.add("active-tab");
-		    	document.getElementById("qty-header").classList.remove("active-tab");
-		    	document.getElementById("room-pick-header").classList.remove("active-tab");
-		    	document.getElementById("total-header").classList.remove("active-tab");
-		    }else if (id == "room-pick"){
-		        document.getElementById("room-pick-header").classList.add("active-tab");
-		        document.getElementById("qty-header").classList.remove("active-tab");
-		        document.getElementById("date-pick-header").classList.remove("active-tab");
-		        document.getElementById("total-header").classList.remove("active-tab");
-		    }else if (id == "total"){
-		    	document.getElementById("total-header").classList.add("active-tab");
-		    	document.getElementById("qty-header").classList.remove("active-tab");
-		    	document.getElementById("date-pick-header").classList.remove("active-tab");
-		    	document.getElementById("room-pick-header").classList.remove("active-tab");
-		    }
-		});
-
-
-		
-		//sel-qty-room
-		var i=0;
-		var max_rooms=5;
-		$("#qty-header").html("Guest & room <br>"+1+" room");
-		$('#add-room').on('click', function() 
-		{
-			if(i<max_rooms) {
-				document.getElementById("sub-room").style.visibility = "visible";
-				var source = $('.guest-room:first'), clone = source.clone();
-		    	clone.appendTo('#container-add-room');
-		    	document.getElementById("sub-room").style.visibility = "visible";
-		    	$("#qty-header").html("Guest & room <br>"+(i+2)+" rooms");
-		    	i++;
-			}
-			if(i==max_rooms-1){
-				document.getElementById("add-room").style.display = 'none'; 
-			}						    
-		});
-		
-		$(document).on("click",".sub-room",function() 
-		{	
-			if(i>0){
-				$(this).closest(".guest-room").remove();
-				i--;				
-				document.getElementById("add-room").style.display = 'block';
-				$("#qty-header").html("Guest & room <br>"+(i+1)+" rooms");				
-			}
-			if(i<1){
-				document.getElementById("sub-room").style.visibility = "hidden";
-				$("#qty-header").html("Guest & room <br>"+1+" room");
-			}
-		});	
 
 		//check date picked
 
@@ -567,6 +441,7 @@
 
 		//add room
 		var j=0;
+		var max_rooms=10;
 		var total_amount=0;
 		$('.reserve-room').click(function()
 		{	
@@ -576,7 +451,7 @@
 			{
 				document.getElementById('lds-ring').style.display="none";
 			}, 200);
-			if(j<i+1)
+			if(j<max_rooms)
 			{
 				var id =this.id;
 				var rid = j+1;
@@ -595,7 +470,7 @@
 						$('#total_amount').val(total_amount);
 					}
 				});		
-				if(i==j){
+				if(j===max_rooms){
 					$('.nav-tabs a[href="#total"]').tab('show');
 				}
 				j++;			
@@ -603,6 +478,7 @@
 			}else{
 				$('.nav-tabs a[href="#total"]').tab('show');
 			}		
+			console.log(j);
 		});
 
 
@@ -612,9 +488,9 @@
 			$(this).closest(".card").remove();			
 			j--;
 			document.getElementById(id_room).remove();
-			$('.nav-tabs a[href="#room-pick"]').tab('show');
+			// $('.nav-tabs a[href="#room-pick"]').tab('show');
 			$("#room-pick-header").html("Accomodations <br>"+(j)+" rooms");
-			var idr=this.id.substring(this.id.length - 1, this.id.length);
+			var idr=this.id.substring(this.id.length - 1, this.id.length);			
 			$.ajax({
 				url:"{{route('remove_room.action')}}",
 				method:'GET',
@@ -624,7 +500,7 @@
 				success:function(data)
 				{						
 					total_amount-=data.room_price;
-					$('#total_amount').html('$'+total_amount);
+					$('#total_amount').val(total_amount);
 				}
 			});
 		});
